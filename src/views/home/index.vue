@@ -1,4 +1,5 @@
 <template>
+<section class="sectionBox">
   <div class="header">
     <div class="header_left">
       <span class="animated infinite pulse slow">代理外站数据</span>
@@ -27,6 +28,7 @@
       <component :is="Component" />
     </keep-alive>
   </router-view>
+</section>
 </template>
 <script setup lang="ts">
 import { onMounted, onUnmounted, reactive } from 'vue'
@@ -117,6 +119,9 @@ onUnmounted(() => {
 <style lang="less" scoped>
 * {
   cursor: url(@/assets/images/pointer.png) 8 3, auto !important;
+}
+.sectionBox{
+  width: 1920px;
 }
 .header {
   position: fixed;

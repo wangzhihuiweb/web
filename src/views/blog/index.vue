@@ -127,7 +127,7 @@ watch(
 .blog_module {
   box-sizing: border-box;
   min-height: calc(100vh);
-  // background-color: #087ce1;
+  background-color: #1b3577;
   padding-top: 60px;
   .blog_main {
     // height: 1000px;

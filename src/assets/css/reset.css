@@ -199,12 +199,12 @@ input[type="reset"] {
 }
 
 
-html,
+/* html,
 body,
 #app {
     background-color: #092862;
 	width:1920px;
-}
+} */
 
 /* @media screen and (max-width: 1900px) {
     #app::after{
