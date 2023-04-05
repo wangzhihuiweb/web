@@ -1,5 +1,5 @@
 <template>
-  <div class="box animated fadeInUp">
+  <div class="visitsNum">
     <div class="title">全站设备访问总量</div>
     <div class="figure">
       <div v-html="state.datahtml"></div>
@@ -30,19 +30,15 @@ onBeforeMount(() => {
 </script>
 
 <style scoped lang="less">
-@font-face {
-  font-family: 'din';
-  src: url('@/assets/font/DIN Condensed Bold.ttf');
-}
-.box {
+.visitsNum {
   width: 496px;
   height: 186px;
   background: url(@/assets/images/border_bg01.png) no-repeat
     rgba(5, 149, 235, 0.2);
   position: absolute;
-  top: 20px;
+  bottom:73%;
   left: 10px;
-  div.title {
+  .title {
     width: 100%;
     height: 70px;
     line-height: 70px;

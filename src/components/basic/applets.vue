@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="applets">
     <div class="appletcode1">
       <img src="@/assets/images/appletcode1.png" />
     </div>
@@ -18,7 +18,7 @@
   </div>
 </template>
 <style lang="less" scoped>
-.box {
+.applets {
   width: 180px;
   height: 180px;
   position: absolute;
@@ -27,7 +27,7 @@
   margin-left: -90px;
   margin-top: -90px;
 }
-.box > div {
+.applets > div {
   width: 180px;
   height: 180px;
   border-radius: 180px;
@@ -37,31 +37,31 @@
   -webkit-box-shadow: 0 0 8px 1px #c1c7a5; /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
   box-shadow: 0 0 8px 1px #c1c7a5; /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
 }
-.box > div > img {
+.applets > div > img {
   display: block;
   width: 100%;
   height: 100%;
   opacity: 0.9;
 }
-.box .appletcode1 {
+.applets .appletcode1 {
   position: absolute;
   top: 73px;
   position: absolute;
 
   left: -582px;
 }
-.box .appletcode2 {
+.applets .appletcode2 {
   position: absolute;
   top: 18px;
   left: 509px;
 }
-.box .appletcode3 {
+.applets .appletcode3 {
   position: absolute;
   left: -26px;
     position: absolute;
     top: 50px;
 }
-.box .appletcode4 {
+.applets .appletcode4 {
   left: -266px;
   top: 145px;
   position: absolute;
@@ -72,7 +72,7 @@
       opacity: 1;
     }
 }
-.box .appletcode5 {
+.applets .appletcode5 {
     left: 252px;
     top: -107px;
   position: absolute;

@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大前端铺</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+    <title>智慧铺</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div id="Loading">
+        <div class="loading-next-box">
+          <div class='loading-next-box-warp'></div>
+        </div>
+      </div>
+      <style type="text/css">
+        *{
+          padding: 0;
+          margin: 0;
+        }
+        #Loading {
+          position: fixed;
+          z-index: 999999;
+          width: calc(100vw);
+          height: calc(100vh);
+          opacity: 0.66;
+          /* background: rgba(0,0,0,0.8); */
+          background: rgb(18 124 199);
+        }
+        #Loading .loading-next-box {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        #Loading .loading-next-box-warp {
+          width: 518px;
+          height: 472px;
+          background: url(./public/images/loading.gif);
+        }
+      </style>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
+      <!-- <script>
+      setInterval(function() {
+        check();
+      }, 2000);
+      var check = function() {
+        function doCheck(a) {
+          if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+            (function() {}['constructor']('debugger')());
+          } else {
+            (function() {}['constructor']('debugger')());
+          }
+          doCheck(++a);
+        }
+        try {
+          doCheck(0);
+        } catch (err) {}
+      };
+      check();
+ </script> -->
 </html>

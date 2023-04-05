@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="weatherbox">
     <div class="time">
       <h3>
         {{ state.time.hm }}&nbsp;&nbsp;{{ state.time.s }}
@@ -13,11 +13,11 @@
     </div>
     <div class="weather" v-if="Object.keys(state.weather).length">
       <div class="img">
-        <img src="@/assets/images/weather/小雨.png" alt="" />
+        <img :src="bindImg(state.weather.casts[0].dayweather)" alt="" />
+
+        <!-- <img src="@/assets/images/"+bindImg()+"" alt=""> -->
       
       </div>
-
-
       <div class="info">
         <!-- {{ state.weather.casts}} -->
         <h3 v-html="state.weather.casts[0].dayweather"></h3>
@@ -46,9 +46,13 @@ import { formatAxis, formatDate } from '@/utils/formatTime'
 //   const bindIcon(icon) {
 //     return require("@/assets/images/"+icon);
 // }
-const bindImg = (item: any) => {
-  return `./src/assets/images/digit/${item}.png`
+const bindImg =(url:string)=>{
+  return `/public/images/weather/${url}.png`
 }
+// console.log(bindImg('2'))
+// const bindImg = (item: any) => {
+//   return `./src/assets/images/digit/${item}.png`
+// }
 const state = reactive({
   time: {
     hm: '',
@@ -102,12 +106,12 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 @font-face {
   font-family: 'din';
   src: url('@/assets/font/DIN Condensed Bold.ttf');
 }
-.box {
+.weatherbox {
   width: 800px;
   height: 200px;
   bottom: 50px;

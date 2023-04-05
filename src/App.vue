@@ -5,6 +5,8 @@
 import {onMounted} from 'vue'
 import { Local } from '@/utils/storage'
 import {setvisits} from '@/api/users/visits'
+import { NextLoading } from '@/utils/loading'
+NextLoading.start()
 onMounted(()=>{
   // alert(123)
     if(Local.get('ISvisit') !=='true'){

@@ -1,55 +1,87 @@
 <template>
-  <div class="box">
-    <swiper :pagination="pagination" :modules="modules" class="mySwiper">
-    <swiper-slide>Slide 1</swiper-slide>
-    <swiper-slide>Slide 2</swiper-slide><swiper-slide>Slide 3</swiper-slide>
-    <swiper-slide>Slide 4</swiper-slide><swiper-slide>Slide 5</swiper-slide>
-    <swiper-slide>Slide 6</swiper-slide><swiper-slide>Slide 7</swiper-slide>
-    <swiper-slide>Slide 8</swiper-slide><swiper-slide>Slide 9</swiper-slide>
-  </swiper>
+  <div class="deviceclassify">
+    <swiper
+      :pagination="pagination"
+      :loop="true"
+      :autoplay="{
+        delay: 2500,
+        disableOnInteraction: true,
+      }"
+      :navigation="true"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide v-for="item in myArr" :data="item">
+        <visitarea :data="item"></visitarea>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 <script lang="ts">
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
+import { defineComponent, toRaw } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Pagination, Navigation,Autoplay} from 'swiper'
+import visitarea from '@/components/basic/visitarea.vue'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+export default defineComponent({
+  props: ['visitsdata'],
+  components: {
+    Swiper,
+    SwiperSlide,
+    visitarea,
+  },
+  setup(props) {
+    const arr = <any>toRaw(props.visitsdata)
+    let map = <any>{}
+    let myArr = []
+    // console.log(arr)
+    for (let i = 0; i < arr.length; i++) {
+      // console.log(!map[arr[i].address])
+      if (!map[arr[i].device]) {
+        myArr.push({
+          name: arr[i].device,
+          value: 1,
+          data: [arr[i]],
+        })
+        // console.log(arr[i])
+        map[arr[i].device] = arr[i]
+      } else {
+        for (let j = 0; j < myArr.length; j++) {
+          if (arr[i].device === myArr[j].name) {
+            myArr[j].data.push(arr[i])
+            myArr[j].value++
+            break
+          }
+        }
+      }
+    }
 
-  // Import Swiper styles
-  import 'swiper/css';
+    // console.log(myArr)
 
-  import 'swiper/css/pagination';
-
-  // import './style.css';
-
-  // import required modules
-  import { Pagination } from 'swiper';
-
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
-    setup() {
-      return {
-        pagination: {
-          clickable: true,
-          renderBullet: function (index:any, className:any) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
-          },
+    return {
+      pagination: {
+        clickable: true,
+        renderBullet: function (index: any, className: any) {
+          return '<span class="' + className + '">' + (index + 1) + '</span>'
         },
-        modules: [Pagination],
-      };
-    },
-  };
+      },
+      modules: [Pagination, Navigation,Autoplay],
+      myArr,
+    }
+  },
+})
 </script>
 
 <style lang="less" scoped>
-.box {
+.deviceclassify {
   width: 550px;
   border: #1a3f72 solid 1px;
   height: 400px;
   background: rgba(41, 85, 252, 0.2);
   position: absolute;
-  top: 50px;
+  bottom: 50%;
   right: 10px;
   display: flex;
   z-index: 22;
@@ -60,40 +92,39 @@
     width: 100%;
     height: 100%;
   }
-  
+
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-  
+
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  
-  .swiper-pagination-bullet {
+
+  :deep(.swiper-pagination-bullet) {
     width: 20px;
     height: 20px;
     text-align: center;
     line-height: 20px;
     font-size: 12px;
     color: #000;
+    font-weight: bold;
     opacity: 1;
-    background: rgba(0, 0, 0, 0.2);
+    background: #0066d3;
   }
-  
-  .swiper-pagination-bullet-active {
-    color: #fff;
-    background: #007aff;
-  }
-    
 
+  :deep(.swiper-pagination-bullet-active) {
+    color: #fff;
+    background: #027cff;
+  }
 }
 </style>

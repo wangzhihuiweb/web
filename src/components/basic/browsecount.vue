@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="browsecount">
     <span class="j_1"></span>
     <span class="j_2"></span>
     <span class="j_3"></span>
@@ -270,13 +270,13 @@ getvisits().then((res) => {
 // })
 </script>
 <style lang="less" scoped>
-.box {
+.browsecount {
   width: 496px;
   border: #1a3f72 solid 2px;
   height: 320px;
   background: rgba(41, 85, 252, 0.2);
   position: absolute;
-  top: 240px;
+  bottom: 37%;
   left: 10px;
   display: flex;
   flex-direction: column;

@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="accesstime">
     <span class="j_1"></span>
     <span class="j_2"></span>
     <span class="j_3"></span>
@@ -48,7 +48,7 @@ for (let i = 0; i < arr.length; i++) {
 const seriesdata: Array<number> = []
 const xAxisdata: Array<string> = []
 myArr.map((item) => {
-  console.log(item)
+  // console.log(item)
   seriesdata.push(item.value)
   xAxisdata.push(item.name)
 })
@@ -110,13 +110,13 @@ nextTick(() => {
 // console.log(myArr)
 </script>
 <style lang="less" scoped>
-.box {
+.accesstime {
   width: 496px;
   border: #1a3f72 solid 2px;
   height: 320px;
   background: rgba(41, 85, 252, 0.2);
   position: absolute;
-  top: 590px;
+  bottom: 10px;
   left: 10px;
   display: flex;
   flex-direction: column;

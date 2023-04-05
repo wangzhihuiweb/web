@@ -38,13 +38,13 @@
         v-if="data.visitsdata.length > 0"
         :visitsdata="data.visitsdata"
       ></AccessTime>
-      <DeviceClassify></DeviceClassify>
+      <DeviceClassify  v-if="data.visitsdata.length > 0"
+        :visitsdata="data.visitsdata"></DeviceClassify>
       <MapDistribute
         v-if="data.visitsdata.length > 0"
         :visitsdata="data.visitsdata"
       ></MapDistribute>
       <weather></weather>
-      <!-- {{  data.visitsdata }} -->
       <div class="flasheffectoutbox">
         <div style="width: 1000px; height: 500px; position: relative;">
           <div class="line2 line"></div>
@@ -202,20 +202,9 @@
         </div>
       </div>
     </swiper-slide>
-    <!-- <swiper-slide v-for="item in bannerArr" :key="item" :style="`background:url('${item}') no-repeat center center;`">
-      
-    </swiper-slide> -->
-    <!-- <swiper-slide style="background-image:url(@'/assets/images/banner1.jpg') no-repeat center center;">
-      <div>
-
-      </div>
-    </swiper-slide> -->
     <swiper-slide>
       <applets></applets>
     </swiper-slide>
-    <!--<swiper-slide><img src="@/assets/images/banner3.jpg" /></swiper-slide>
-    <swiper-slide><img src="@/assets/images/banner4.jpg" /></swiper-slide>
-    <swiper-slide><img src="@/assets/images/banner5.jpg" /></swiper-slide> -->
   </swiper>
 </template>
 <script lang="ts">
@@ -242,19 +231,18 @@ export default {
     AccessTime,
     DeviceClassify,
     MapDistribute,
-    weather,
+    weather
   },
   setup() {
-    const bannerArr = ['src/assets/images/banner3.jpg']
-    const state = {
-      swiperOptionSwp1: {
-        navigation: {
-          nextEl: '.swiper-button-next.swp1',
-          prevEl: '.swiper-button-prev.swp1',
-        },
-        loop: true,
+    const state={
+  swiperOptionSwp1:{
+      navigation: {
+        nextEl: '.swiper-button-next.swp1',
+        prevEl: '.swiper-button-prev.swp1',
       },
+      loop: true,
     }
+}
 
     const data = reactive({
       visitsdata: [],
@@ -266,11 +254,10 @@ export default {
     })
 
     return {
-      bannerArr,
       EffectFade,
       Autoplay,
       data,
-      state,
+      state
     }
   },
 }

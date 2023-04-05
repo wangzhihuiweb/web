@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="mapdistribute">
     <div id="china_map"></div>
   </div>
 </template>
@@ -160,10 +160,10 @@ function initmap(data:any) {
 }
 </script>
 <style lang="less" scoped>
-.box {
-  width: 700px;
+.mapdistribute {
+  width: 620px;
 //   border: #1a3f72 solid 1px;
-  height: 440px;
+  height: 410px;
 //   background: rgba(41, 85, 252, 0.2);
   position: absolute;
   bottom: 20px;
@@ -181,6 +181,6 @@ function initmap(data:any) {
     top:40px;
     font-size: 33px;
     color: #fff;
-    left:41%;
+    left:34%;
 }
 </style>
