@@ -31,6 +31,51 @@ export const blogRouter=[
                 title: '第三方支付',
               },
             },
+            {
+              path: '/blog/promise',
+              name: 'promise',
+              component: () => import('@/views/blog/promise.vue'),
+              meta: {
+                title: 'promise',
+              },
+            },
+            {
+              path: '/blog/questionbank',
+              name: 'questionbank',
+              component: () => import('@/views/blog/questionbank.vue'),
+              meta: {
+                title: 'questionbank',
+              },
+            },
+            {
+              path: '/blog/regular',
+              name: 'regular',
+              component: () => import('@/views/blog/regular.vue'),
+              meta: {
+                title: 'regular',
+              },
+            },
+            {
+              path:"/blog/css",
+              name:"CSS",
+              component: () => import('@/views/blog/css/index.vue'),
+              children:[
+                {
+                  path:'/blog/css',
+                  redirect: '/blog/css/CSSFlex'
+                },
+                {
+                  path: 'CSSFlex',
+                  component: () => import('@/views/blog/css/CSS Flex 布局.vue'),
+                  name: 'CSSFlex',
+                },
+                {
+                  path: 'CSSGrid',
+                  component: () => import('@/views/blog/css/CSS Grid 布局.vue'),
+                  name: 'CSSGrid',  
+                },
+              ]
+            }
         ]
       }
 ]

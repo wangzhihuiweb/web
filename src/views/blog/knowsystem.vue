@@ -49,11 +49,13 @@ import { reactive } from 'vue';
 // 定义变量内容
 const state =reactive({
   srcList:[
+    {url:['http://www.wzhmeet.top:8887/web/面试经验谈.jpg'],name:'面试经验谈'},
     {url:['http://www.wzhmeet.top:8887/web/前端知识体系.png'],name:'前端知识体系'},
     {url:['http://www.wzhmeet.top:8887/web/基础知识.png'],name:'基础知识'},
     {url:['http://www.wzhmeet.top:8887/web/算法.png'],name:'算法'},
     {url:['http://www.wzhmeet.top:8887/web/前端工程化.png'],name:'前端工程化'},
     {url:['http://www.wzhmeet.top:8887/web/前端框架计算机网络与安全浏览器原理.png'],name:'前端框架计算机网络与安全浏览器原理'},
+    {url:['http://www.wzhmeet.top:8887/web/CSSGrid.png'],name:'CSSGrid'},
   ]
 })
 

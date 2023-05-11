@@ -40,7 +40,7 @@ router.beforeEach((to,from,next)=>{
     }).catch(() => {
       window.open(`http://www.wzhmeet.top:8881`);
     });
-  }else if(to.path=='/blog/payment'){
+  }else if(to.path=='/blog/payment'|| to.path=='/blog/empty'|| to.path=='/blog/questionbank'||to.path=='/blog/regular'){
     ElMessage({
       message: '禁止访问！',
       type: 'warning',

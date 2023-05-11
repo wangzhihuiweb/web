@@ -7,7 +7,7 @@
       <img src="@/assets/images/appletcode2.png" />
     </div>
     <div class="appletcode3">
-      <img src="@/assets/images/appletcode2.png" />
+      <img src="@/assets/images/appletcode3.png" />
     </div>
     <div class="appletcode4">
       <img src="@/assets/images/h5code2.png" />
@@ -60,6 +60,13 @@
   left: -26px;
     position: absolute;
     top: 50px;
+    background: none;
+    border-radius: inherit;
+    box-shadow: none;
+    img{
+      opacity: 1;
+      transform:scale(1);
+    }
 }
 .applets .appletcode4 {
   left: -266px;
