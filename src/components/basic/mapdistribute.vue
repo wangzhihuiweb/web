@@ -8,7 +8,6 @@
 import * as echarts from 'echarts'
 import china from '@/assets/map/china.json'
 import { onMounted, toRaw, nextTick } from 'vue'
-import { map } from 'lodash';
 const shengfen:any=china
 // const visitsdata=ref()
 const props = defineProps({
@@ -59,9 +58,9 @@ onMounted(() => {
 function initmap(data:any) {
 //  console.log(data)
   var mydata = [
-    { name: '北京', value: 0 },
-    { name: '天津', value: 0 },
-    { name: '上海', value: 0 },
+    { name: '北京', value: 1 },
+    { name: '天津', value: 2 },
+    { name: '上海', value: 3 },
     { name: '重庆', value: 0 },
     { name: '河北', value: 0 },
     { name: '河南', value: 0 },
@@ -106,8 +105,11 @@ function initmap(data:any) {
   // })
   // console.log(newdata)
   data.map((item:any)=>{
-    // console.log(item)
-    newdata[item.name].value=item.value+100
+    if(newdata[item.name]){
+      newdata[item.name].value=item.value+100
+    }
+    console.log(newdata[item.name])
+    // 
   })
 
   var option = {
